@@ -1,6 +1,11 @@
-<mat-selection-list >
-  <mat-list-option *ngFor="let type of trafficTypes">
-    {{type.type}}
+<mat-selection-list #types>
+  <mat-list-option *ngFor="let type of trafficTypesFiltered" 
+
+  [selected]="type.selected"
+  (click)="TypeSelected(types.selectedOptions.selected )" [value]="type">
+  <mat-icon mat-list-icon>{{showIcon(type.type)}}</mat-icon>
+  {{type.type}}
   </mat-list-option>
 </mat-selection-list>
+
 

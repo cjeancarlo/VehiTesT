@@ -4,6 +4,7 @@ import { TrafficType } from 'src/app/interfaces/trafficType';
 import { TrafficMeisterService } from 'src/app/services/traffic-meister.service';
 import { Observable } from 'rxjs';
 import { map, startWith } from 'rxjs/operators';
+import { MatListOption } from '@angular/material/list';
 
 @Component({
   selector: 'app-types',
@@ -13,27 +14,52 @@ import { map, startWith } from 'rxjs/operators';
 export class TypesComponent implements OnInit {
 
   trafficTypes: TrafficType[] = [];
+  trafficTypesFiltered: TrafficType[] = [];
 
-  constructor(private trafficMeisterService: TrafficMeisterService) {
-
-  }
+  constructor(private tMService: TrafficMeisterService) { }
 
   ngOnInit() {
 
-    this.trafficMeisterService.getTypes().subscribe(type => {
-      this.trafficTypes = type/*.map(item => {
-        return {
-          id: item.id,
-          type: item.type
-        };
-      })*/
-        .filter((value, index, self) => {
-          return self.map(e =>  e.type ).indexOf(value.type) === index;
+    this.tMService.loadFinished$.subscribe(load => {
+      this.trafficTypesFiltered = this.tMService.trafficFiltered.filter((value, index, self) => {
+        return self.map(e => e.type).indexOf(value.type) === index;
+      });
+
+      if (this.tMService.seletecTypes.length === 1) {
+        // console.log(this.trafficTypesFiltered);
+
+        this.trafficTypesFiltered.forEach(x => {
+          x.selected = true;
         });
+
+      }
     });
 
 
   }
 
+  showIcon(icon: string) {
+    switch (icon) {
+      case 'car':
+        return 'directions_car';
+      case 'airplane':
+        return 'local_airport';
+      case 'train':
+        return 'train';
+      default:
+        break;
+    }
+
+  }
+  TypeSelected(selectedType: MatListOption[]) {
+
+    this.tMService.seletecTypes = selectedType.map(types => types.value.type);
+
+    this.tMService.filterSelection();
+    this.trafficTypesFiltered = this.tMService.trafficFiltered.filter((value, index, self) => {
+      return self.map(e => e.type).indexOf(value.type) === index;
+    });
+    this.tMService.loadFinished.next(true);
+  }
 
 }

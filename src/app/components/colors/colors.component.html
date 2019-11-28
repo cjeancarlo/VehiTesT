@@ -1,7 +1,7 @@
-<mat-selection-list >
-    <mat-list-option *ngFor="let color of trafficColors">
+<mat-selection-list #colors>
+    <mat-list-option *ngFor="let color of trafficColorsFiltered" 
+    (click)="colorSelected(colors.selectedOptions.selected)" [value]="color">
       {{color.color}}
     </mat-list-option>
   </mat-selection-list>
-  
   

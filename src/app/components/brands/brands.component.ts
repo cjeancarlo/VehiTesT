@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { TrafficMeisterService } from 'src/app/services/traffic-meister.service';
 import { TrafficBrand } from 'src/app/interfaces/traffic-brand';
+import { MatListOption } from '@angular/material/list';
 
 
 @Component({
@@ -10,22 +11,26 @@ import { TrafficBrand } from 'src/app/interfaces/traffic-brand';
 })
 export class BrandsComponent implements OnInit {
 
-  trafficBrands: TrafficBrand[] = [];
-
-  constructor(private trafficMeisterService: TrafficMeisterService) {}
+  trafficBrandsFiltered: TrafficBrand[] = [];
+  constructor(private tMService: TrafficMeisterService) {}
 
   ngOnInit() {
-
-    this.trafficMeisterService.getTypes().subscribe(type => {
-      this.trafficBrands = type.map(item => {
-        return {
-          id: item.id,
-          type: item.type,
-          brand: item.brand
-        };
-      });
+    this.tMService.loadFinished$.subscribe(load  => {
+      this.trafficBrandsFiltered = this.tMService.trafficFiltered;
     });
+  }
+
+  brandSelected(selectedBrand: MatListOption[]) {
+
+    this.tMService.seletecBrands = selectedBrand.map(types => types.value.brand);
+    this.tMService.seletecTypes =  this.tMService.seletecTypes.length === 0 ?
+    selectedBrand.map(types => types.value.type) :
+    this.tMService.seletecTypes;
+
+    this.tMService.filterSelection();
+    this.tMService.loadFinished.next(true);
 
   }
+
 
 }
