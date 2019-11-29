@@ -1,6 +1,36 @@
-<div   fxLayout="row wrap" fxLayoutGap="32px" fxLayoutAlign="flex-start" >
-            <app-types ></app-types>
-            <app-colors></app-colors>
+<mat-toolbar color = "primary">
+    <span class = "gap">The Traffic Meister</span>
+    
+    <span class = "filler"></span>
+    <span>About</span>
+ </mat-toolbar>
+
+
+
+<div   fxLayout="row wrap" fxLayoutGap="10px"  fxLayoutAlign="space-around start"  > 
+
+    <div class="example-container" fxFlex="30%"
+    [class.mat-elevation-z2]="!isActive"
+    [class.mat-elevation-z8]="isActive">
+    <app-types ></app-types>
+   </div>
+   <div class="example-container" fxFlex="30%"
+    [class.mat-elevation-z2]="!isActive"
+    [class.mat-elevation-z8]="isActive">
+    <app-brands></app-brands>
+</div>
+   <div class="example-container" fxFlex="30%"
+    [class.mat-elevation-z2]="!isActive"
+    [class.mat-elevation-z8]="isActive">
+    <app-colors></app-colors>
+</div>
    
-<div>
-        <app-brands></app-brands>
+</div>
+<div class="example-container" 
+[class.mat-elevation-z2]="!isActive"
+[class.mat-elevation-z8]="isActive">
+  
+    <app-grid></app-grid>
+    
+
+   </div>

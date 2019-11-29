@@ -1,3 +1,22 @@
+<!-- 
+<mat-form-field>
+  <mat-select placeholder="Toppings">
+      <mat-option *ngFor="let type of trafficTypesFiltered; let i =index" [value]="type" (click)="selected = i">
+          <mat-checkbox [checked]="selected === i" (change)="TypeSelected($event);selected = i">{{type.type}}</mat-checkbox>
+      </mat-option>
+  </mat-select>
+</mat-form-field>
+
+<mat-form-field>
+  <mat-label>vehicle types</mat-label>
+  <mat-select (selectionChange)="TypeSelected($event )">
+    <mat-option *ngFor="let type of trafficTypesFiltered" [value]="type">
+      {{type.type}}
+    </mat-option>
+  </mat-select>
+</mat-form-field>
+ -->
+
 <mat-selection-list #types>
   <mat-list-option *ngFor="let type of trafficTypesFiltered" 
 

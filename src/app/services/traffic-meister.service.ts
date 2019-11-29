@@ -37,13 +37,13 @@ export class TrafficMeisterService {
 
   filterSelection() {
 
-    console.log(this.seletecTypes,
-    this.seletecBrands,
-    this.seletecColor)
-  
+    // console.log(this.seletecTypes,
+    // this.seletecBrands,
+    // this.seletecColor)
+
 
     this.trafficFiltered =  this.traffic
-      .filter((x) => {
+    .filter((x) => {
         return this.seletecTypes.length === 0 ? this.trafficFiltered : this.seletecTypes.indexOf(x.type) === 0;
       })
 
@@ -57,6 +57,7 @@ export class TrafficMeisterService {
         return this.seletecColor.length === 0 ? this.trafficFiltered : this.functionFindColor(x.colors) === 0;
       });
 
+  
   }
 
 functionFindColor( colorArray ): number {

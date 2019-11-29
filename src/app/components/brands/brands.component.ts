@@ -7,7 +7,7 @@ import { MatListOption } from '@angular/material/list';
 @Component({
   selector: 'app-brands',
   templateUrl: './brands.component.html',
-  styleUrls: ['./brands.component.scss']
+  styleUrls: ['./brands.component.scss'],
 })
 export class BrandsComponent implements OnInit {
 
@@ -22,7 +22,14 @@ export class BrandsComponent implements OnInit {
 
   brandSelected(selectedBrand: MatListOption[]) {
 
+    
+    console.log(this.tMService.seletecTypes);
+    if (selectedBrand.length === 0 ) {
+
+    }
+
     this.tMService.seletecBrands = selectedBrand.map(types => types.value.brand);
+
     this.tMService.seletecTypes =  this.tMService.seletecTypes.length === 0 ?
     selectedBrand.map(types => types.value.type) :
     this.tMService.seletecTypes;

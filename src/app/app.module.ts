@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TypesComponent } from './components/types/types.component';
 import { HomeComponent } from './home/home.component';
-import { FilterPipe } from './pipes/filter.pipe';
+
 
 import { MatInputModule } from '@angular/material/input';
 import {MatGridListModule} from '@angular/material/grid-list';
@@ -20,21 +20,24 @@ import { MatIconModule } from '@angular/material/icon';
 import {MatSelectModule} from '@angular/material/select';
 import { MatListModule } from '@angular/material/list';
 import { MatButtonModule } from '@angular/material/button';
+import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatMenuModule } from '@angular/material/menu';
+import {MatCheckboxModule} from '@angular/material/checkbox';
 import { HttpClientModule } from '@angular/common/http';
 import { BrandsComponent } from './components/brands/brands.component';
 import { ColorsComponent } from './components/colors/colors.component';
 
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { GridComponent } from './components/grid/grid.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     TypesComponent,
     HomeComponent,
-    FilterPipe,
     BrandsComponent,
-    ColorsComponent
+    ColorsComponent,
+    GridComponent
     
   ],
   imports: [
@@ -51,9 +54,11 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     MatInputModule,
     MatGridListModule,
     MatAutocompleteModule,
+    MatCheckboxModule,
     MatCardModule,
     MatButtonModule,
-    MatMenuModule
+    MatMenuModule,
+    MatToolbarModule
   ],
   providers: [],
   bootstrap: [AppComponent]

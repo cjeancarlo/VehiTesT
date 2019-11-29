@@ -1,0 +1,7 @@
+mat-card img{
+    object-fit: cover; /*this makes the image in src fit to the size specified below*/
+    width: calc(100% + 36px) !important; // update padding
+    margin: 0 -24px 16px -18px !important; // update padding
+ }
+
+  
