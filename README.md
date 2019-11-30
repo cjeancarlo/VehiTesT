@@ -4,11 +4,10 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ## Development server
 
-Run `
-node server/app.js for back end
-ng serve` for a dev server. 
+Run `node server/app.js` for back end
+`ng serve` for a dev server. 
 or
-npm run start:tm
+`npm run start:tm`
 
 Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
