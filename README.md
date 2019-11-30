@@ -4,8 +4,8 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ## Development server
 
-Run `node server/app.js` for back end
-`ng serve` for a dev server. 
+Run `node server/app.js`  backend `http://localhost:3000/`
+ `ng serve` for a dev server. 
 or
 `npm run start:tm`
 
