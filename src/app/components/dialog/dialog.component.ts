@@ -11,10 +11,10 @@ import { AboutComponent } from './about/about.component';
 export class DialogComponent  {
 
   constructor(public dialog: MatDialog) {}
-  
+
   openDialog(): void {
     const dialogRef = this.dialog.open(AboutComponent, {
-      width: '25%',
+    //  width: '30%',
       data: {}
     });
 
