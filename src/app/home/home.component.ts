@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl } from '@angular/forms';
+import { TrafficMeisterService } from '../services/traffic-meister.service';
 
 @Component({
   selector: 'app-home',
@@ -7,20 +7,14 @@ import { FormGroup, FormControl } from '@angular/forms';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
+  loading = false;
+ 
+  constructor(private tMService: TrafficMeisterService)  {
 
-  trafficMeisterForm: FormGroup;
+}
 
-  constructor() {
-    this.trafficMeisterForm = new FormGroup(
-      {
-        type: new FormControl(),
-        brand: new FormControl(),
-        color: new FormControl()
-      }
-    );
-  }
-
-  ngOnInit() {
-  }
+ngOnInit() {
+ this.tMService.loadFinished.subscribe(x => this.loading = x);
+}
 
 }

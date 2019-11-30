@@ -46,8 +46,6 @@ export class TypesComponent implements OnInit {
 
   TypeSelected(selectedType: MatListOption[]) {
 
-
-
     this.tMService.seletecTypes = selectedType.map(types => types.value.type);
     this.tMService.filterSelection();
 

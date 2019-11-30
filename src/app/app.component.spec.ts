@@ -26,10 +26,11 @@ describe('AppComponent', () => {
     expect(app.title).toEqual('trafficMeister');
   });
 
-  it('should render title', () => {
+  it('should have label router-outlet', () => {
+
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.debugElement.nativeElement;
-    expect(compiled.querySelector('.content span').textContent).toContain('trafficMeister app is running!');
+    expect(compiled.querySelector('router-outlet')).toBeTruthy();
   });
 });

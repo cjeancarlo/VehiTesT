@@ -1,3 +1,10 @@
+import {
+  MatListModule
+} from '@angular/material';
+
+import { HttpClientTestingModule } from '@angular/common/http/testing';
+
+
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { BrandsComponent } from './brands.component';
@@ -8,7 +15,11 @@ describe('BrandsComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ BrandsComponent ]
+      declarations: [ BrandsComponent ],
+      imports: [
+        MatListModule,
+        HttpClientTestingModule
+      ]
     })
     .compileComponents();
   }));

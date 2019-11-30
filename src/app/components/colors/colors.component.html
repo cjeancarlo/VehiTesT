@@ -1,5 +1,6 @@
 <mat-selection-list #colors>
-    <mat-list-option *ngFor="let color of trafficColorsFiltered" 
+    <mat-list-option *ngFor="let color of trafficColorsFiltered ; let id=index" 
+    attr.data-cy-id="vehicle-color-{{id}}"
     (click)="colorSelected(colors.selectedOptions.selected)" [value]="color">
       {{color.color}}
     </mat-list-option>

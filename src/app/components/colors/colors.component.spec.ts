@@ -1,3 +1,8 @@
+import {
+  MatListModule
+} from '@angular/material';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
+
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ColorsComponent } from './colors.component';
@@ -8,7 +13,8 @@ describe('ColorsComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ColorsComponent ]
+      declarations: [ ColorsComponent ],
+      imports: [HttpClientTestingModule, MatListModule]
     })
     .compileComponents();
   }));

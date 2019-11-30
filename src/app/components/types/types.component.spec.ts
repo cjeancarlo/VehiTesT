@@ -1,6 +1,9 @@
+
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { TypesComponent } from './types.component';
+import { MatListModule, MatIconModule } from '@angular/material';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 
 describe('TypesComponent', () => {
   let component: TypesComponent;
@@ -8,10 +11,14 @@ describe('TypesComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ TypesComponent ]
+      declarations: [ TypesComponent ],
+      imports: [ MatListModule, MatIconModule, HttpClientTestingModule ]
     })
     .compileComponents();
   }));
+
+
+  
 
   beforeEach(() => {
     fixture = TestBed.createComponent(TypesComponent);
@@ -22,4 +29,15 @@ describe('TypesComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  // it('should have a list of vehicules type', async(
+  //   () => {
+  //     fixture.whenStable().then(() => {
+  //       fixture.detectChanges();
+  //       expect(component.trafficTypes.length).toEqual(3); //true
+  //     });
+
+  //   }
+
+  // ) );
 });

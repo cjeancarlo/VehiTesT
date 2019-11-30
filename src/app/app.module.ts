@@ -30,6 +30,12 @@ import { ColorsComponent } from './components/colors/colors.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { GridComponent } from './components/grid/grid.component';
 
+import { LottieAnimationViewModule } from 'ng-lottie';
+import { LoadingComponent } from './components/loading/loading.component';
+import { HeaderComponent } from './components/header/header.component';
+import { FooterComponent } from './components/footer/footer.component';
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -37,7 +43,10 @@ import { GridComponent } from './components/grid/grid.component';
     HomeComponent,
     BrandsComponent,
     ColorsComponent,
-    GridComponent
+    GridComponent,
+    LoadingComponent,
+    HeaderComponent,
+    FooterComponent
     
   ],
   imports: [
@@ -48,6 +57,7 @@ import { GridComponent } from './components/grid/grid.component';
     FormsModule,
     FlexLayoutModule,
     HttpClientModule,
+    LottieAnimationViewModule.forRoot(),
     MatIconModule,
     MatSelectModule,
     MatListModule,

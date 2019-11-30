@@ -7,3 +7,18 @@ mat-selection-list {
   max-height: 160px;
   overflow: auto;
 }
+
+.tm-container {
+  padding: 16px;
+  margin: 16px 0 16px 0;
+
+}
+
+@media (max-width: 600px) {
+  .tm-container {
+     padding: 16px;
+     width: 100%;
+     margin: 16px 0 16px 0;
+ 
+   }
+  }   

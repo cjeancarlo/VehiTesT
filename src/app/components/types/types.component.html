@@ -18,8 +18,8 @@
  -->
 
 <mat-selection-list #types>
-  <mat-list-option *ngFor="let type of trafficTypesFiltered" 
-
+  <mat-list-option *ngFor="let type of trafficTypesFiltered; let id=index" 
+  attr.data-cy-id="vehicle-type-{{id}}"
   [selected]="type.selected"
   (click)="TypeSelected(types.selectedOptions.selected )" [value]="type">
   <mat-icon mat-list-icon>{{showIcon(type.type)}}</mat-icon>

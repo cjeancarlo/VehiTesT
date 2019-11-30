@@ -1,36 +1,32 @@
-<mat-toolbar color = "primary">
-    <span class = "gap">The Traffic Meister</span>
+<app-header></app-header>
+
+<div 
+data-cy-id="vehicle-filter"
+class="tm-sticky" fxLayout="row wrap" fxLayout.xs="column" fxLayoutGap="10px" fxLayoutAlign="space-around start"
+    *ngIf="loading">
+
+    <div class="tm-container" fxFlex="30%" fxFlex.xs="100%" [class.mat-elevation-z2]="!isActive"
+        [class.mat-elevation-z8]="isActive">
+        <app-types></app-types>
+    </div>
+    <div class="tm-container" fxFlex="30%" fxFlex.xs="100%" [class.mat-elevation-z2]="!isActive"
+        [class.mat-elevation-z8]="isActive">
+        <app-brands></app-brands>
+    </div>
+    <div class="tm-container" fxFlex="30%" fxFlex.xs="100%" [class.mat-elevation-z2]="!isActive"
+        [class.mat-elevation-z8]="isActive">
+        <app-colors></app-colors>
+    </div>
+
+    <div class="tm-container" fxFlex="100%" fxFlex.xs="100%" *ngIf="loading" [class.mat-elevation-z2]="!isActive" [class.mat-elevation-z8]="isActive">
+        <app-grid></app-grid>
+    </div>
     
-    <span class = "filler"></span>
-    <span>About</span>
- </mat-toolbar>
-
-
-
-<div   fxLayout="row wrap" fxLayoutGap="10px"  fxLayoutAlign="space-around start"  > 
-
-    <div class="example-container" fxFlex="30%"
-    [class.mat-elevation-z2]="!isActive"
-    [class.mat-elevation-z8]="isActive">
-    <app-types ></app-types>
-   </div>
-   <div class="example-container" fxFlex="30%"
-    [class.mat-elevation-z2]="!isActive"
-    [class.mat-elevation-z8]="isActive">
-    <app-brands></app-brands>
+    <app-footer fxFlexOffset="auto"></app-footer> 
 </div>
-   <div class="example-container" fxFlex="30%"
-    [class.mat-elevation-z2]="!isActive"
-    [class.mat-elevation-z8]="isActive">
-    <app-colors></app-colors>
-</div>
-   
-</div>
-<div class="example-container" 
-[class.mat-elevation-z2]="!isActive"
-[class.mat-elevation-z8]="isActive">
-  
-    <app-grid></app-grid>
-    
 
-   </div>
+
+<div *ngIf="!loading">
+    <app-loading></app-loading>
+</div>
+

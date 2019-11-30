@@ -1,5 +1,6 @@
  <mat-selection-list #brands>
-  <mat-list-option *ngFor="let brand of trafficBrandsFiltered"
+  <mat-list-option *ngFor="let brand of trafficBrandsFiltered; let id=index" 
+  attr.data-cy-id="vehicle-brand-{{id}}"
   (click)="brandSelected(brands.selectedOptions.selected)" [value]="brand">
 {{brand.brand}}  
 </mat-list-option>

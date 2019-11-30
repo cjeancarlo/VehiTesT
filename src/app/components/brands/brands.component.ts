@@ -22,7 +22,6 @@ export class BrandsComponent implements OnInit {
 
   brandSelected(selectedBrand: MatListOption[]) {
 
-    
     console.log(this.tMService.seletecTypes);
     if (selectedBrand.length === 0 ) {
 
