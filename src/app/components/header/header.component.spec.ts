@@ -3,7 +3,8 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { HeaderComponent } from './header.component';
-import { MatToolbarModule } from '@angular/material';
+import { MatToolbarModule, MatDialogModule, MAT_DIALOG_DATA, MatDialogRef } from '@angular/material';
+import { DialogComponent } from '../dialog/dialog.component';
 
 describe('HeaderComponent', () => {
   let component: HeaderComponent;
@@ -11,8 +12,12 @@ describe('HeaderComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ HeaderComponent ],
-      imports: [MatToolbarModule]
+      declarations: [ HeaderComponent, DialogComponent ],
+      imports: [MatToolbarModule, MatDialogModule ],
+      providers: [
+        {provide: MAT_DIALOG_DATA, useValue: {}},
+        {provide: MatDialogRef, useValue: {}},
+      ]
     })
     .compileComponents();
   }));

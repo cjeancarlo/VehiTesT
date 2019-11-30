@@ -8,9 +8,11 @@ import { ColorsComponent } from '../components/colors/colors.component';
 import { GridComponent } from '../components/grid/grid.component';
 import { FooterComponent } from '../components/footer/footer.component';
 import { LoadingComponent } from '../components/loading/loading.component';
-import { MatToolbarModule, MatListModule, MatIcon, MatIconModule, MatCardModule } from '@angular/material';
+import { MatToolbarModule, MatListModule, MatIcon, MatIconModule, MatCardModule, MAT_DIALOG_DATA, MatDialogModule, MatDialogRef } from '@angular/material';
 import { LottieAnimationViewModule } from 'ng-lottie';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { AboutComponent } from '../components/dialog/about/about.component';
+import { DialogComponent } from '../components/dialog/dialog.component';
 
 describe('HomeComponent', () => {
   let component: HomeComponent;
@@ -19,9 +21,14 @@ describe('HomeComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [HomeComponent, HeaderComponent, TypesComponent,
-                     BrandsComponent, ColorsComponent, GridComponent,
-                     FooterComponent, LoadingComponent],
-      imports: [MatToolbarModule, MatListModule, MatIconModule, MatCardModule, LottieAnimationViewModule, HttpClientTestingModule]
+        BrandsComponent, ColorsComponent, GridComponent,
+        FooterComponent, LoadingComponent, DialogComponent],
+      imports: [MatToolbarModule, MatListModule, MatIconModule, MatCardModule,
+        LottieAnimationViewModule, HttpClientTestingModule, MatDialogModule],
+      providers: [
+        { provide: MAT_DIALOG_DATA, useValue: {} },
+        { provide: MatDialogRef, useValue: {} },
+      ]
     })
       .compileComponents();
   }));
