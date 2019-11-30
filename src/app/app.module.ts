@@ -11,7 +11,7 @@ import { HomeComponent } from './home/home.component';
 import { MatInputModule } from '@angular/material/input';
 import {MatGridListModule} from '@angular/material/grid-list';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
-
+import {MatDialogModule} from '@angular/material/dialog';
 import {MatCardModule} from '@angular/material/card';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
@@ -34,6 +34,8 @@ import { LottieAnimationViewModule } from 'ng-lottie';
 import { LoadingComponent } from './components/loading/loading.component';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { DialogComponent } from './components/dialog/dialog.component';
+import { AboutComponent } from './components/dialog/about/about.component';
 
 
 @NgModule({
@@ -46,8 +48,10 @@ import { FooterComponent } from './components/footer/footer.component';
     GridComponent,
     LoadingComponent,
     HeaderComponent,
-    FooterComponent
-    
+    FooterComponent,
+    DialogComponent,
+    AboutComponent
+
   ],
   imports: [
     BrowserModule,
@@ -60,6 +64,7 @@ import { FooterComponent } from './components/footer/footer.component';
     LottieAnimationViewModule.forRoot(),
     MatIconModule,
     MatSelectModule,
+    MatDialogModule,
     MatListModule,
     MatInputModule,
     MatGridListModule,
@@ -69,6 +74,9 @@ import { FooterComponent } from './components/footer/footer.component';
     MatButtonModule,
     MatMenuModule,
     MatToolbarModule
+  ],
+  entryComponents: [
+    AboutComponent
   ],
   providers: [],
   bootstrap: [AppComponent]
