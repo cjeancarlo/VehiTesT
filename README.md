@@ -1,6 +1,7 @@
 # TrafficMeister
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.2.
+This project was built for a Dev Case test for a job,
+generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.2.
 
 ### Built With
 
@@ -12,16 +13,24 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ## Installation
 
-$ `npm i`
+After you clone re repository
+Run $ `npm i`
 
 ## Development server
 
-Run `node server/app.js` and then `ng serve` for a dev server. 
-or
-`npm run start:tm`
+Run `node server/app.js` and then `ng serve` for a dev server or `npm run start:tm`
+Navigate to `http://localhost:4200/` The app will automatically reload if you change any of the source files.
 
-Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
-Backend  Url `http://localhost:3000/`
+## API Reference
+
+URL `http://localhost:3000/`
+
+Method:
+
+/type
+
+GET 
+
 
 
 ## Build
