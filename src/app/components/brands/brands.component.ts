@@ -1,32 +1,36 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { TrafficMeisterService } from 'src/app/services/traffic-meister.service';
-import { TrafficBrand } from 'src/app/interfaces/traffic-brand';
 import { MatListOption } from '@angular/material/list';
-
+import { Subject } from 'rxjs';
+import { Vehicle } from 'src/app/interfaces/vehicle';
+import { takeUntil } from 'rxjs/operators';
 
 @Component({
   selector: 'app-brands',
   templateUrl: './brands.component.html',
   styleUrls: ['./brands.component.scss'],
 })
-export class BrandsComponent implements OnInit {
+export class BrandsComponent implements OnInit, OnDestroy {
 
-  trafficBrandsFiltered: TrafficBrand[] = [];
+ /** emit the destruccion of the subcriptios  */
+ private unsubscribe$ = new Subject<boolean>();
+
+ /** store the vehicules tupes array */
+  trafficBrandsFiltered: Vehicle[] = [];
+
   constructor(private tMService: TrafficMeisterService) {}
 
   ngOnInit() {
-    this.tMService.loadFinished$.subscribe(load  => {
+ /** populate and filter the  Array from service */
+    this.tMService.loadFinished$
+    .pipe(takeUntil(this.unsubscribe$))
+    .subscribe(load  => {
       this.trafficBrandsFiltered = this.tMService.trafficFiltered;
     });
   }
 
+  /** update the Brand List and refesh and filter data Json Array  */
   brandSelected(selectedBrand: MatListOption[]) {
-
-    console.log(this.tMService.seletecTypes);
-    if (selectedBrand.length === 0 ) {
-
-    }
-
     this.tMService.seletecBrands = selectedBrand.map(types => types.value.brand);
 
     this.tMService.seletecTypes =  this.tMService.seletecTypes.length === 0 ?
@@ -35,8 +39,11 @@ export class BrandsComponent implements OnInit {
 
     this.tMService.filterSelection();
     this.tMService.loadFinished.next(true);
+ }
 
+  /** kill the subscription */
+  ngOnDestroy() {
+    this.tMService.detroySubcription(this.unsubscribe$);
   }
-
 
 }

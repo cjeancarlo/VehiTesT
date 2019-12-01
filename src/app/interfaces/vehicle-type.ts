@@ -1,4 +1,4 @@
-export interface TrafficType {
+export interface VehicleType {
     id: number;
     type: string;
     selected: boolean;

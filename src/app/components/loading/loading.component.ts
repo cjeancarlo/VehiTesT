@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component  } from '@angular/core';
 
 @Component({
   selector: 'app-loading',
@@ -7,13 +7,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoadingComponent  {
 
-  public lottieConfig: Object;
+  public lottieConfig: any;
   private anim: any;
 
   constructor() {
+      /** lottiefile config json  */
       this.lottieConfig = {
           path: 'assets/triangle-loading.json',
-          //path: 'assets/dino-dance.json',
           renderer: 'canvas',
           autoplay: true,
           loop: true

@@ -1,6 +1,6 @@
 
 import { Component } from '@angular/core';
-import {MatDialog} from '@angular/material/dialog';
+import { MatDialog } from '@angular/material/dialog';
 import { AboutComponent } from './about/about.component';
 
 @Component({
@@ -8,19 +8,15 @@ import { AboutComponent } from './about/about.component';
   templateUrl: './dialog.component.html',
   styleUrls: ['./dialog.component.scss']
 })
-export class DialogComponent  {
+export class DialogComponent {
 
-  constructor(public dialog: MatDialog) {}
+  constructor(public dialog: MatDialog) { }
 
   openDialog(): void {
     const dialogRef = this.dialog.open(AboutComponent, {
-    //  width: '30%',
       data: {}
     });
 
-    dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
-    });
   }
 
 }

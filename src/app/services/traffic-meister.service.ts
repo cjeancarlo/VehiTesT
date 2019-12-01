@@ -1,13 +1,15 @@
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { HttpHeaders, HttpClient } from '@angular/common/http';
-import { Observable, BehaviorSubject } from 'rxjs';
-
+import { Observable, BehaviorSubject, of, throwError } from 'rxjs';
+import { Vehicle } from '../interfaces/vehicle';
+import { Subject } from 'rxjs';
+import { takeUntil, retry, mergeMap, map } from 'rxjs/operators';
+import { verifyHostBindings } from '@angular/compiler';
 @Injectable({
   providedIn: 'root'
 })
 export class TrafficMeisterService {
-
   /**
    * store the vehicules types user selection
    */
@@ -24,11 +26,12 @@ export class TrafficMeisterService {
   /**
    * store FILTERED array json Object
    */
-  trafficFiltered: any[] = [];
+  trafficFiltered: Vehicle[] = [];
+
   /**
    * store  array json Object
    */
-  traffic: any[] = [];
+  traffic: Vehicle[] = [];
 
   loadFinished = new BehaviorSubject<boolean>(false);
   loadFinished$ = this.loadFinished.asObservable();
@@ -36,19 +39,31 @@ export class TrafficMeisterService {
   private url = `${environment.apiUrl}:${environment.port}`;
 
   constructor(private http: HttpClient) {
-    this.getTypes().subscribe(type => {
-      this.trafficFiltered = this.traffic = type;
-      this.loadFinished.next(true);
-    });
+    this.getTypes()
+      .pipe(
+        mergeMap(data => {
+          if (data.length === 0 ) {
+            return throwError('Error!');
+          }
+          return of(data);
+        }),
+        retry(2)
+      )
+      .subscribe(type => {
 
+        this.trafficFiltered = this.traffic = type;
+        this.loadFinished.next(true);
+      },
+        error => console.log(`${error}: Retried 2 times then quit!`));
   }
+
   /**
    * get the Array Json from Server method GET
    */
-  getTypes(): Observable<any[]> {
+  getTypes(): Observable<Vehicle[]> {
     const headers = new HttpHeaders({
     });
-    return this.http.get<any[]>(`${this.url}/types`, {});
+    return this.http.get<Vehicle[]>(`${this.url}/types`, {});
   }
 
   /**
@@ -79,6 +94,15 @@ export class TrafficMeisterService {
   functionFindColor(colorArray: any[]): number {
     const intersection = colorArray.filter(element => this.seletecColor.map(x => x['color']).includes(element));
     return intersection.length === 1 ? 0 : -1;
+  }
+
+  /**
+   * Kill subcriptions
+   * @param s$
+   */
+  detroySubcription(s$: Subject<boolean>) {
+    s$.next();
+    s$.complete();
   }
 
 }

@@ -7,10 +7,10 @@
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e",
+    "e2e": "cypress open",
     "cypress:open": "cypress open",
-    "start:tm": "node server/app.js > /dev/null | ng serve"
-  },
+    "start:tm": "start node server/app.js && ng serve"
+   },
   "private": true,
   "dependencies": {
     "@angular/animations": "~8.2.4",

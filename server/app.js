@@ -19,16 +19,11 @@ app.get('/types', async (req, res, next) => {
       res.json(data)
     });
 } catch (e) {
-    //this will eventually be handled by your error handling middleware
-    next(e) 
+    return console.error(e);
+     
   }
 })
-  // respuesta = {
-  //  error: false,
-  //  codigo: 200,
-  //  mensaje: ''
-  // };
-
+ 
 app.get('/', function (req, res) {
   res.send('backend');
 });

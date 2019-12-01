@@ -1,43 +1,38 @@
-
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { async, ComponentFixture, TestBed} from '@angular/core/testing';
 import { TypesComponent } from './types.component';
 import { MatListModule, MatIconModule } from '@angular/material';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { TrafficMeisterService } from 'src/app/services/traffic-meister.service';
+
+import { DebugElement } from '@angular/core';
 
 describe('TypesComponent', () => {
   let component: TypesComponent;
   let fixture: ComponentFixture<TypesComponent>;
+  let service: TrafficMeisterService;
+  let el: DebugElement;
 
-  beforeEach(async(() => {
+  beforeEach( async(() => {
     TestBed.configureTestingModule({
-      declarations: [ TypesComponent ],
-      imports: [ MatListModule, MatIconModule, HttpClientTestingModule ]
-    })
-    .compileComponents();
+      declarations: [TypesComponent],
+      imports: [MatListModule, MatIconModule, HttpClientTestingModule],
+      providers: [
+        TrafficMeisterService
+      ], }).compileComponents()
+      .then(() => {
+        // create component and test fixture
+        fixture = TestBed.createComponent(TypesComponent);
+        // get test component from the fixture
+        component = fixture.componentInstance;
+        // UserService provided to the TestBed
+        service = TestBed.get(TrafficMeisterService);
+        //  get the "a" element by CSS selector (e.g., by class name)
+        fixture.detectChanges();
+      });
+    }));
+
+    it('should create', ( () => {
+    expect(component).toBeTruthy();
   }));
 
-
-  
-
-  beforeEach(() => {
-    fixture = TestBed.createComponent(TypesComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
-
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
-
-  // it('should have a list of vehicules type', async(
-  //   () => {
-  //     fixture.whenStable().then(() => {
-  //       fixture.detectChanges();
-  //       expect(component.trafficTypes.length).toEqual(3); //true
-  //     });
-
-  //   }
-
-  // ) );
 });

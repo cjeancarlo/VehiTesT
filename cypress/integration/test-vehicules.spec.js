@@ -5,10 +5,10 @@ context('test list types of Vehicules', () => {
     cy.visit('http://localhost:4200').wait(2000)
   })
 
-  it('Header test', () => {
-    cy.get('.mat-toolbar > :nth-child(2)')
-    .contains('The Traffic Meister')
-})
+//   it('Header test', () => {
+//     cy.get('.mat-toolbar > :nth-child(2)')
+//     .contains('The Traffic Meister')
+// })
 
   it('Test List Vehicle Type ', () => {
 
