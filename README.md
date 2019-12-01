@@ -13,7 +13,7 @@ generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3
 
 ## Installation
 
-After you clone re repository
+After you clone repository
 Run $ `npm i`
 
 ## Development server
