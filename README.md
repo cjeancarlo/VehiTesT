@@ -3,7 +3,7 @@
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.2.
 
 ### Built With
-This section should list any major frameworks that you built your project using. Leave any add-ons/plugins for the acknowledgements section. Here are a few examples.
+
 * [@angular/material](https://material.angular.io/)
 * [@angular/cli](https://angular.io/)
 * [@angular/flex-layout](https://github.com/angular/flex-layout)
