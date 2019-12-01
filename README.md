@@ -23,15 +23,34 @@ Navigate to `http://localhost:4200/` The app will automatically reload if you ch
 
 ## API Reference
 
-URL `http://localhost:3000/`
+**Types**
+----
+  Returns json array data about vehicules types.
 
-Method:
+* **URL**
 
-/type
+  `/types/`
 
-GET 
+* **Method:**
 
+  `GET`
+  
+* **Success Response:**
 
+Code: 200
+Content:  [
+    {
+      id: 1,
+      type: 'car',
+      brand: 'Bugatti Veyron',
+      colors: ['red', 'black'],
+      img: 'https://upload.wikimedia.org....jpg'
+    },...
+    }]
+
+* **Sample Call:**
+
+`localhost:3000/types`
 
 ## Build
 
