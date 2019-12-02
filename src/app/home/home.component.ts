@@ -35,6 +35,7 @@ export class HomeComponent implements OnInit, OnDestroy {
     this.tMService.detroySubcription(this.unsubscribe$);
     }
 
+  /** enable|disable css class on the lists */
   over(action: MouseEvent, div: string) {
     const act = action.type === 'mouseover' ? true : false;
     this.isActive = {
