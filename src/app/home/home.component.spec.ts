@@ -8,10 +8,10 @@ import { ColorsComponent } from '../components/colors/colors.component';
 import { GridComponent } from '../components/grid/grid.component';
 import { FooterComponent } from '../components/footer/footer.component';
 import { LoadingComponent } from '../components/loading/loading.component';
-import { MatToolbarModule, MatListModule, MatIcon, MatIconModule, MatCardModule, MAT_DIALOG_DATA, MatDialogModule, MatDialogRef } from '@angular/material';
+import { MatToolbarModule, MatListModule, MatIconModule, MatCardModule,
+         MAT_DIALOG_DATA, MatDialogModule, MatDialogRef } from '@angular/material';
 import { LottieAnimationViewModule } from 'ng-lottie';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
-import { AboutComponent } from '../components/dialog/about/about.component';
 import { DialogComponent } from '../components/dialog/dialog.component';
 
 describe('HomeComponent', () => {

@@ -1,9 +1,9 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { TrafficMeisterService } from 'src/app/services/traffic-meister.service';
+import { TrafficMeisterService } from '@app/services/traffic-meister.service';
 import { MatListOption } from '@angular/material/list';
 import { Subject } from 'rxjs';
-import { Vehicle } from 'src/app/interfaces/vehicle';
-import { VehicleColor } from 'src/app/interfaces/vehicle-color';
+import { Vehicle } from '@app/interfaces/vehicle';
+import { VehicleColor } from '@app/interfaces/vehicle-color';
 import { takeUntil } from 'rxjs/operators';
 
 @Component({
@@ -16,8 +16,8 @@ export class ColorsComponent implements OnInit, OnDestroy {
   /** emit the destruccion of the subcriptios  */
   private unsubscribe$ = new Subject<boolean>();
 
-  /** store the vehicules tupes array */
-  trafficColorsFiltered: any[] = [];
+  /** store the vehicules types array */
+  vehicleColorsFiltered: any ;
 
   constructor(private tMService: TrafficMeisterService) { }
 
@@ -27,20 +27,19 @@ export class ColorsComponent implements OnInit, OnDestroy {
     this.tMService.loadFinished$
     .pipe(takeUntil(this.unsubscribe$))
     .subscribe(load => {
-      this.trafficColorsFiltered = [];
-      this.tMService.trafficFiltered.map(r =>
-        this.trafficColorsFiltered = this.trafficColorsFiltered.concat(r.colors)
+      this.vehicleColorsFiltered = [];
+      this.tMService.trafficFiltered.forEach(r =>
+        this.vehicleColorsFiltered = this.vehicleColorsFiltered.concat(r.colors)
       );
-
-      this.trafficColorsFiltered = this.trafficColorsFiltered.map(r => {
+      this.vehicleColorsFiltered = this.vehicleColorsFiltered.map(r => {
         return {
           color: r
         };
       });
 
-      this.trafficColorsFiltered =
+      this.vehicleColorsFiltered =
       this.tMService.seletecColor.length === 0 ?
-      this.trafficColorsFiltered.filter((value, index, self) => {
+      this.vehicleColorsFiltered.filter((value, index, self) => {
         return self.map(e => e.color).indexOf(value.color) === index;
       }) : this.tMService.seletecColor;
 

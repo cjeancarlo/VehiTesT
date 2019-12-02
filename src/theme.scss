@@ -1,0 +1,120 @@
+@import "~@angular/material/prebuilt-themes/deeppurple-amber.css";
+@import '~@angular/material/theming';
+@include mat-core();
+// //define the branch pallette 
+// // http://mcg.mbitson.com/
+$sytac-primary: ( 
+        50 : #fdf3e7,
+        100 : #fae1c4,
+        200 : #f7cd9d,
+        300 : #f4b876,
+        400 : #f1a958,
+        500 : #ef9a3b,
+        600 : #ed9235,
+        700 : #eb882d,
+        800 : #e87e26,
+        900 : #e46c19,
+        A100 : #ffffff,
+        A200 : #ffeee3,
+        A400 : #ffceb0,
+        A700 : #ffbe96,
+        contrast: (
+            50 : #fff,
+            100 : #fff,
+            200 : #fff,
+            300 : #fff,
+            400 : #fff,
+            500 : #fff,
+            600 : #fff,
+            700 : #fff,
+            800 : #fff,
+            900 : #fff,
+            A100 : #fff,
+            A200 : #fff,
+            A400 : #fff,
+            A700 : #fff,
+));
+
+$sytac-accent:  (
+    50 : #fcede3,
+    100 : #f7d3ba,
+    200 : #f2b68c,
+    300 : #ec985e,
+    400 : #e8823c,
+    500 : #e46c19,
+    600 : #e16416,
+    700 : #dd5912,
+    800 : #d94f0e,
+    900 : #d13d08,
+    A100 : #fffcfb,
+    A200 : #ffd4c8,
+    A400 : #ffab95,
+    A700 : #ff977b,
+    contrast: (
+        50 : #fff,
+        100 : #fff,
+        200 : #fff,
+        300 : #fff,
+        400 : #fff,
+        500 : #fff,
+        600 : #fff,
+        700 : #ffffff,
+        800 : #ffffff,
+        900 : #ffffff,
+        A100 : #fff,
+        A200 : #fff,
+        A400 : #fff,
+        A700 : #fff,
+    )
+);
+$sytac-background: ( 
+    status-bar: map_get($mat-grey, 300), 
+    app-bar: map_get($mat-grey, 100), 
+    //background: map_get($mat-grey, 50), 
+    hover: map_get($mat-grey, 400), 
+    //card: map_get($mat-grey, 300), 
+    //dialog: map_get($sytac-primary, 50), 
+    /*disabled-button: rgba(black, 0.12), 
+    raised-button: white, 
+    focused-button: $dark-focused, 
+    selected-button: map_get($mat-grey, 300), 
+    selected-disabled-button: map_get($mat-grey, 400), 
+    disabled-button-toggle: map_get($mat-grey, 200), 
+    unselected-chip: map_get($mat-grey, 300), 
+    disabled-list-option: map_get($mat-grey, 200), */);
+$sytac-foreground: ( 
+    base: black, 
+    divider: $dark-dividers, 
+    dividers: $dark-dividers, 
+    disabled: $dark-disabled-text, 
+    disabled-button: rgba(black, 0.26), 
+    disabled-text: $dark-disabled-text, 
+    elevation: black, 
+    hint-text: $dark-disabled-text, 
+    secondary-text: $dark-secondary-text, 
+    icon: rgba(black, 0.54), 
+    icons: rgba(black, 0.54), 
+    text: rgba(black, 0.87), 
+    slider-min: rgba(black, 0.87), 
+    slider-off: rgba(black, 0.26), 
+    slider-off-active: rgba(black, 0.38), 
+    );
+// // instead of creating a theme with mat-light-theme like a sane person, 
+// // we will create our own theme-creating function that lets us apply our own foreground and background palettes.
+@function create-sytac-theme($primary, $accent, $warn: mat-palette($mat-red)) {
+    @return ( primary: $primary, accent: $accent, warn: $warn, is-dark: false, foreground: $sytac-foreground, background: $sytac-background);
+}
+
+$sytac-app-primary: mat-palette($sytac-primary);
+// //Also known as the secondary color Used for 
+// //floating action buttons and interactive elements.
+$sytac-app-accent: mat-palette($sytac-accent);
+// // The warn palette is optional (defaults to red).
+$sytac-app-warn: mat-palette($mat-red);
+// // Create the theme object (a Sass map containing all of the palettes).
+$sytac-app-theme: create-sytac-theme($sytac-app-primary, $sytac-app-accent, $sytac-app-warn);
+// // Include theme styles for core and each component used in your app.
+// // Alternatively, you can import and @include the theme mixins for each component
+// // that you are using.
+@include angular-material-theme($sytac-app-theme);
+$accent: map-get($sytac-app-theme, accent );

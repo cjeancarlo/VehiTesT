@@ -8,6 +8,8 @@ import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material';
 })
 export class AboutComponent  {
 
+  email = 'jeancarlo.cartaya@gmail.com';
+  phone = '+34 641 63 95 74';
   constructor(
     public dialogRef: MatDialogRef<AboutComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any) {}

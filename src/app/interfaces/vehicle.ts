@@ -5,6 +5,5 @@ export interface Vehicle {
     colors: string[];
     img: string;
     selected?: boolean;
-    
 }
 

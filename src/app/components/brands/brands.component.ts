@@ -1,8 +1,8 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { TrafficMeisterService } from 'src/app/services/traffic-meister.service';
+import { TrafficMeisterService } from '@app/services/traffic-meister.service';
 import { MatListOption } from '@angular/material/list';
 import { Subject } from 'rxjs';
-import { Vehicle } from 'src/app/interfaces/vehicle';
+import { Vehicle } from '@app/interfaces/vehicle';
 import { takeUntil } from 'rxjs/operators';
 
 @Component({

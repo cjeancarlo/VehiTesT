@@ -1,24 +1,22 @@
-import { async, ComponentFixture, TestBed} from '@angular/core/testing';
+import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { TypesComponent } from './types.component';
 import { MatListModule, MatIconModule } from '@angular/material';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
-import { TrafficMeisterService } from 'src/app/services/traffic-meister.service';
-
-import { DebugElement } from '@angular/core';
+import { TrafficMeisterService } from '@app/services/traffic-meister.service';
 
 describe('TypesComponent', () => {
   let component: TypesComponent;
   let fixture: ComponentFixture<TypesComponent>;
   let service: TrafficMeisterService;
-  let el: DebugElement;
-
-  beforeEach( async(() => {
+  // let el: DebugElement;
+  beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [TypesComponent],
       imports: [MatListModule, MatIconModule, HttpClientTestingModule],
       providers: [
         TrafficMeisterService
-      ], }).compileComponents()
+      ],
+    }).compileComponents()
       .then(() => {
         // create component and test fixture
         fixture = TestBed.createComponent(TypesComponent);
@@ -29,9 +27,9 @@ describe('TypesComponent', () => {
         //  get the "a" element by CSS selector (e.g., by class name)
         fixture.detectChanges();
       });
-    }));
+  }));
 
-    it('should create', ( () => {
+  it('should create', (() => {
     expect(component).toBeTruthy();
   }));
 

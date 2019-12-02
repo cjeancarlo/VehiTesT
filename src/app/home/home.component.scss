@@ -1,9 +1,10 @@
-.tm-sticky {
-   //position: fixed;
-  //   width: 100%;
-  //   position: -webkit-sticky;
-  //   position: sticky;
-  //   top: 0;
-  //   padding: 10px;
-    z-index:1000;
-  }
+.div-error {
+  position: absolute;
+  margin: auto;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 45%;
+  height: 200px;
+}

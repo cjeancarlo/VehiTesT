@@ -3,26 +3,35 @@
 <div 
 data-cy-id="vehicle-filter"
 class="tm-sticky" fxLayout="row wrap" fxLayout.xs="column" fxLayoutGap="10px" fxLayoutAlign="space-around start"
-    *ngIf="loading">
+    *ngIf="loading && !tMService.errorResonse">
 
-    <div class="tm-container" fxFlex="30%" fxFlex.xs="100%" [class.mat-elevation-z2]="!isActive"
-        [class.mat-elevation-z8]="isActive">
+    <div  (mouseover)='over($event,"type")' (mouseout)='over($event,"type")' class="tm-container" fxFlex="30%" fxFlex.xs="100%" 
+        [class.mat-elevation-z2]="!isActive.t"
+        [class.mat-elevation-z8]="isActive.t">
         <app-types></app-types>
     </div>
-    <div class="tm-container" fxFlex="30%" fxFlex.xs="100%" [class.mat-elevation-z2]="!isActive"
-        [class.mat-elevation-z8]="isActive">
+    <div (mouseover)='over($event,"brand")' (mouseout)='over($event,"brand")' class="tm-container" fxFlex="30%" fxFlex.xs="100%" 
+        [class.mat-elevation-z2]="!isActive.b"
+        [class.mat-elevation-z8]="isActive.b">
         <app-brands></app-brands>
     </div>
-    <div class="tm-container" fxFlex="30%" fxFlex.xs="100%" [class.mat-elevation-z2]="!isActive"
-        [class.mat-elevation-z8]="isActive">
+    <div (mouseover)='over($event,"color")' (mouseout)='over($event,"color")' class="tm-container" fxFlex="30%" fxFlex.xs="100%" 
+        [class.mat-elevation-z2]="!isActive.c"
+        [class.mat-elevation-z8]="isActive.c">
         <app-colors></app-colors>
     </div>
 
     <div class="tm-container" fxFlex="100%" fxFlex.xs="100%" *ngIf="loading" [class.mat-elevation-z2]="!isActive" [class.mat-elevation-z8]="isActive">
         <app-grid></app-grid>
     </div>
-    
     <app-footer fxFlexOffset="auto"></app-footer> 
+</div>
+
+
+
+
+<div class="div-error" *ngIf="tMService.errorResonse">
+    {{tMService!.errorResonse.error}}
 </div>
 
 

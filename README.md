@@ -5,11 +5,22 @@ generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3
 
 ### Built With
 
-* [@angular/material](https://material.angular.io/)
-* [@angular/cli](https://angular.io/)
+* [@angular/material](https://material.angular.io/)  
+    why Material
+    Material Design, Responsive Layout, Accessibility, Material Design is the soul of Angular Material and it makes aesy to design
+* [@angular/cli](https://angular.io/)  
+    why Angular ?
+    Because iam in love with Angular
 * [@angular/flex-layout](https://github.com/angular/flex-layout)
+    why flex-layout ?
+    Every responsive design needs to show, hide or modify the look of some elements per breakpoint. 
+    with this tool everything is covered.
 * [Express](https://expressjs.com)
+    why Express ?
+    Easy implementation, very light, and very, super stable  
 * [LottieFiles](https://lottiefiles.com/)
+    why LottieFiles ?
+    The easiest way to make your application look great, if you don't know it, I invite you to do it
 
 ## Installation
 
@@ -28,15 +39,12 @@ Navigate to `http://localhost:4200/` The app will automatically reload if you ch
   Returns json array data about vehicules types.
 
 * **URL**
-
   `/types/`
 
 * **Method:**
-
   `GET`
   
 * **Success Response:**
-
 Code: 200
 Content:  [
     {
@@ -49,7 +57,6 @@ Content:  [
     }]
 
 * **Sample Call:**
-
 `localhost:3000/types`
 
 ## Build
@@ -61,7 +68,7 @@ Run `ng build` to build the project. The build artifacts will be stored in the `
 Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
 
 ## Running end-to-end tests
-init the app `npm run start:tm`
+start the app `npm run start:tm`
 Run `npm run cypress:open` to execute the end-to-end tests via Cypress
 
 ## Contributing
